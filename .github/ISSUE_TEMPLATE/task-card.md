@@ -1,20 +1,16 @@
 ---
 name: task card
-about: task card test
-title: "[task] 작업 내용을 작성해 주세요"
+about: server / client task card
+title: "[client / server] 작업 내용을 작성해 주세요"
 labels: ''
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## Work Description
+- 작업 내용을 간단하게 적어주세요
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
-
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+## TODO:
+1. [ ] Job1
+2. [ ] Job2
+3. [ ] Job3
