@@ -1,5 +1,5 @@
 ---
-name: task card
+name: Task Card
 about: server / client task card
 title: "[client / server] 작업 내용을 작성해 주세요"
 labels: ''
