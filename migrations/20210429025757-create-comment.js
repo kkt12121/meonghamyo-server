@@ -24,7 +24,7 @@ module.exports = {
           key: "id"
         }
       },
-      content: {
+      commentBody: {
         type: Sequelize.STRING
       },
       like: {

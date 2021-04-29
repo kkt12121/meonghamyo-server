@@ -25,7 +25,7 @@ module.exports = {
       img: {
         type: Sequelize.STRING
       },
-      content: {
+      contentBody: {
         type: Sequelize.STRING
       },
       hit: {

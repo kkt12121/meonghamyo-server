@@ -30,15 +30,13 @@ module.exports = (sequelize, DataTypes) => {
     boardCode: DataTypes.INTEGER,
     title: DataTypes.STRING,
     img: DataTypes.STRING,
-    content: DataTypes.STRING,
+    contentBody: DataTypes.STRING,
     hit: { 
-       type: DataTypes.INTEGER,
-       allowNull: fallse,
+       type: DataTypes.INTEGER,       
        defaultValue: '0'
       },
     like: {
-       type: DataTypes.INTEGER,
-       allowNull: fallse,
+       type: DataTypes.INTEGER,       
        defaultValue: '0'
       }
   }, {
