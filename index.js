@@ -1,13 +1,45 @@
 const express = require('express');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+// const bodyParser = require('body-parser');
 const https = require('https');
 const fs = require('fs');
 const cors = require('cors');
 const app = express();
 const port = 4000;
+const usersRouter = require('./routes/user');
 
-app.use(cors());
+app.use(
+  session({
+    secret: '@meonghamyo',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      domain: "localhost",
+      path: "/",
+      maxAge: 24 * 6 * 60 * 10000,
+      sameSite: "None",
+      httpOnly: true,
+      secure: true,
+    },
+  })
+);
 
-app.get('/', function(req,res) {
+// app.use(cors({
+//   origin: "http://localhost:3000",
+//   methods: "GET, POST, OPTIONS, DELETE, PUT",
+//   credentials: true
+// }));
+app.use(cors())
+
+app.use(express.json()); 
+app.use(express.urlencoded( {extended : false } ));
+app.use(cookieParser())
+// app.use(bodyParser().json())
+
+app.use('/user', usersRouter);
+
+app.get('/', function(req,res) {    
     res.send("<h1>hi friend!</h1>")
 })
 
