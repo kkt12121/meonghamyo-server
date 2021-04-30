@@ -42,17 +42,19 @@ module.exports = {
             birth: birth
         })
         .then((data) => {
-            res.status(201).send({
+            // console.log(data)
+            res.status(201).send({data: [{
                 id: data.dataValues.id,
                 email: data.dataValues.email,
                 password: data.dataValues.password,
                 name: data.dataValues.name,
                 nickname: data.dataValues.nickname,
                 birth: data.dataValues.birth,
-            })  
+            }]})  
         })
+        .catch((err) => {
+            res.status(500).send('err');
+          });
     } 
-    
-
-}
+  }
 }

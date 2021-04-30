@@ -23,6 +23,9 @@ module.exports = {
       birth: {
         type: Sequelize.STRING
       },
+      img: {
+        type: Sequelize.STRING
+      },
       chatbox: {
         type: Sequelize.STRING
       },
