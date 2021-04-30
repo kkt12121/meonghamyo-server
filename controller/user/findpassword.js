@@ -12,10 +12,10 @@ module.exports = {
 
     if(userInfoCheck) {
         const { password } = userInfoCheck
-        res.status(200).send({ data: password, message: "ok" })
+        res.status(200).send({ data: [{password}], message: "ok" })
     } else {
         res.status(400).send({ message: "Please check again" })
     }
     
-}
+  }
 }

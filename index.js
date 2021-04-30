@@ -7,8 +7,8 @@ const fs = require('fs');
 const cors = require('cors');
 const app = express();
 const port = 4000;
-const usersRouter = require('./routes/user');
-
+const userRouter = require('./routes/user');
+const mypageRouter = require('./routes/mypage')
 app.use(
   session({
     secret: '@meonghamyo',
@@ -37,7 +37,8 @@ app.use(express.urlencoded( {extended : false } ));
 app.use(cookieParser())
 // app.use(bodyParser().json())
 
-app.use('/user', usersRouter);
+app.use('/mypage', mypageRouter)
+app.use('/user', userRouter);
 
 app.get('/', function(req,res) {    
     res.send("<h1>hi friend!</h1>")
