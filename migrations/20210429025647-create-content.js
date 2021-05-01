@@ -16,8 +16,8 @@ module.exports = {
           key: "id"
         }
       },
-      boardCode: {
-        type: Sequelize.INTEGER
+      boardName: {
+        type: Sequelize.STRING
       },
       title: {
         type: Sequelize.STRING

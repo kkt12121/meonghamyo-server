@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   content.init({
     userId: DataTypes.INTEGER,
-    boardCode: DataTypes.INTEGER,
+    boardName: DataTypes.STRING,
     title: DataTypes.STRING,
     img: DataTypes.STRING,
     contentBody: DataTypes.STRING,

@@ -4,8 +4,11 @@ const { user } = require('../../models');
 module.exports = {
   delete: (req, res) => {
      console.log('session userid:', req.session.userId);
-       // session에 들어있는 userId를 user에서 찾아서 없앤다
-       user
+       if(!req.session.userId) {
+          res.status(401).json({ message: 'not authorized' })
+       } else {
+         // session에 들어있는 userId를 user에서 찾아서 없앤다
+         user
          .destroy({
            where: {
              id: req.session.userId,
@@ -24,5 +27,6 @@ module.exports = {
         .catch((err) => {
            res.status(500).send('err');
          });
+     }       
   },
 };
