@@ -34,7 +34,7 @@ module.exports = {
 
       return await queryInterface.bulkInsert('contents', [{
         userId: userRows[0].id,
-        boardCode: 2,
+        boardName: "parcelOutContent",
         title: "스피치 분양합니다 !",
         img: "testContent.jpg",
         contentBody: "분양희망 하시는분은 연락주세요 !",
@@ -45,7 +45,7 @@ module.exports = {
        },
        {
         userId: userRows[0].id,
-        boardCode: 1,
+        boardName: "communityContent",
         title: "산책 메이트 구합니다 ~!",
         img: "testContent.jpg",
         contentBody: "산책희망 하시는분은 연락주세요 !",

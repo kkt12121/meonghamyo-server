@@ -4,6 +4,9 @@ module.exports = {
   put: (req, res) => {
      const { name, birth, password, nickname } = req.body;
      // session에 userId에 해당하는 user를 찾아서 바꿀정보를 update한다
+     if(!req.session.userId) {
+      res.status(401).json({ message: 'not authorized' })
+     } else {
       user
        .update(
          {
@@ -24,5 +27,6 @@ module.exports = {
         .catch((err) => {
            res.status(500).send('err');
        });
+    }   
   },
 };
