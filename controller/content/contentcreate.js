@@ -22,8 +22,7 @@ module.exports = {
            })
            .then((data) => {
               //  console.log(data)
-               res.status(201).send({ data: [{
-                  id: req.session.id,
+               res.status(201).send({ data: [{                  
                   userId: req.session.userId,
                   title: data.dataValues.title,
                   boardName: data.dataValues.boardName,
