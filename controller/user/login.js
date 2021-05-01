@@ -18,7 +18,7 @@ module.exports = {
         req.session.save(() => {
             req.session.userId = userInfo.id
             res.status(200).send({ data: [{userInfo}], message: 'ok' })
-            console.log(req.session)
+            // console.log(req.session)
         })       
     }
   }
