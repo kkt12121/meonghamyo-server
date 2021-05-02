@@ -2,7 +2,7 @@ const { user } = require('../../models');
 
 module.exports = {
   put: (req, res) => {
-     const { name, birth, password, nickname } = req.body;
+     const { name, birth, password, nickname, img } = req.body;
      // session에 userId에 해당하는 user를 찾아서 바꿀정보를 update한다
      if(!req.session.userId) {
       res.status(401).json({ message: 'not authorized' })
@@ -13,7 +13,8 @@ module.exports = {
            name: name,
            birth: birth,
            password: password,
-           nickname: nickname
+           nickname: nickname,
+           img: img
          },
          {
            where: {
