@@ -11,20 +11,32 @@ const { contentController } = require('../controller');
 // 4. 수정 삭제 버튼이 존재
 // 5. 2. 과정에서 이미 contentid가 불려진 상태이니 userid가 같으면 삭제
 // delete
+
+// * POST /contentcreate
 router.post('/create', contentController.contentcreate.post);
-
-router.get('/:id', contentController.contentinfo.get);
-
-// * DELETE /contentdelete
-router.delete('/:id/delete', contentController.contentdelete.delete);
-
-// * PUT /contentupdate
-router.put('/:id/update', contentController.contentupdate.put);
 
 // * GET /sellpage
 router.get('/parceloutpage', contentController.parceloutpage.get);
 
 // * GET /contentdelete
 router.get('/communitypage', contentController.communitypage.get);
+
+// * PUT /contentupdate
+router.put('/:id/update', contentController.contentupdate.put);
+
+// * DELETE /contentdelete
+router.delete('/:id/delete', contentController.contentdelete.delete);
+
+// * GET /contentinfo
+router.get('/:id', contentController.contentinfo.get);
+
+// * POST /commentcreate
+router.post('/:id/commentcreate', contentController.commentcreate.post);
+
+// * PUT /commentcreate
+router.put('/:id/:commentId/commentupdate', contentController.commentupdate.put);
+
+// * DELETE /commentdelete
+router.delete('/:id/:commentId/commentdelete', contentController.commentdelete.delete);
 
 module.exports = router;

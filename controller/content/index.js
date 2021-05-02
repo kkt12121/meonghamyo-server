@@ -4,5 +4,8 @@ module.exports = {
     contentupdate: require('./contentupdate'),
     parceloutpage: require('./parceloutpage'),
     communitypage: require('./communitypage'),
-    contentinfo: require('./contentinfo')    
+    contentinfo: require('./contentinfo'),
+    commentcreate: require('./commentcreate'),
+    commentupdate: require('./commentupdate'),
+    commentdelete: require('./commentdelete')      
   };
