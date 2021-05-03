@@ -1,7 +1,12 @@
 var express = require('express');
 var router = express.Router();
-
+var multer = require('multer'); 
+const upload = multer({
+    dest : 'uploads/'
+});
 const { contentController } = require('../controller');
+
+router.post('/profileupload',upload.single('image'), contentController.upload.post)
 
 // * POST /contentcreate
 // contentid : 27 && userid : 23
