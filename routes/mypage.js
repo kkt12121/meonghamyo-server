@@ -1,9 +1,17 @@
+
 var express = require('express');
 var router = express.Router();
+var multer = require('multer'); 
+const upload = multer({
+    dest : 'uploads/'
+});
+// req.file.path
 
 const { mypageController } = require('../controller');
 
-// * POST /logout
+router.post('/profileupload',upload.single('image'), mypageController.upload.post)
+
+
 router.post('/logout', mypageController.logout.post);
 
 // * DELETE /userdelete

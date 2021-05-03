@@ -4,5 +4,6 @@ module.exports = {
     userinfo: require('./userinfo'),
     userupdate: require('./userupdate'),
     usercontent: require('./usercontent'),
-    usercomment: require('./usercomment')
+    usercomment: require('./usercomment'),
+    upload: require('./upload')
   };
