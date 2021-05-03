@@ -24,6 +24,9 @@ module.exports = {
           key: "id"
         }
       },
+      userName: {
+        type: Sequelize.STRING
+      },
       commentBody: {
         type: Sequelize.STRING
       },
