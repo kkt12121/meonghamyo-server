@@ -33,10 +33,13 @@ router.get('/:id', contentController.contentinfo.get);
 // * POST /commentcreate
 router.post('/:id/commentcreate', contentController.commentcreate.post);
 
-// * PUT /commentcreate
+// * PUT /commentupdate
 router.put('/:id/:commentId/commentupdate', contentController.commentupdate.put);
 
 // * DELETE /commentdelete
 router.delete('/:id/:commentId/commentdelete', contentController.commentdelete.delete);
+
+// * POST /tagcreate
+router.post('/:id/tagcreate', contentController.tagcreate.post);
 
 module.exports = router;

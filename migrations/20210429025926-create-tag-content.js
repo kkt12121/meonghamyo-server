@@ -10,7 +10,6 @@ module.exports = {
       },
       contentId: {
         type: Sequelize.INTEGER,
-        onDelete: 'cascade',
         references: {
           model: 'contents',
           key: "id"

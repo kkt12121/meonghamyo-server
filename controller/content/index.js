@@ -7,5 +7,6 @@ module.exports = {
     contentinfo: require('./contentinfo'),
     commentcreate: require('./commentcreate'),
     commentupdate: require('./commentupdate'),
-    commentdelete: require('./commentdelete')      
+    commentdelete: require('./commentdelete'),
+    tagcreate: require('./tagcreate')
   };
