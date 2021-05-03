@@ -1,9 +1,15 @@
 const { comment } = require('../../models');
+const { user } = require('../../models');
 
 module.exports = {
     post: async (req, res) => {
     
-      const { commentBody } = req.body   
+      const { commentBody } = req.body
+      const userName = await user.findOne({
+        attributes: ['nickname'],
+        where: req.session.userId
+      })
+      // console.log(userName.nickname)   
       // 로그인을 해야 conmment를 작성할수 있으므로
       // session정보 확인을 통해 로그인 유무를 확인한다 
       // 로그인 상태가 아니라면 로그인 하라고 메세지를 보낸다 
@@ -13,6 +19,7 @@ module.exports = {
            comment
            .create({
                userId: req.session.userId, 
+               userName: userName.nickname,
                contentId: req.params.id,            
                commentBody: commentBody               
            })
