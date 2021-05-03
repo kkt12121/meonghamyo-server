@@ -1,5 +1,6 @@
 const { content } = require('../../models');
 const { user } = require('../../models');
+const { tag } = require('../../models');
 
 module.exports = {
     get: async (req, res) => {
@@ -12,9 +13,13 @@ module.exports = {
                 include: [{
                     model: user,                  
                     attributes: ['nickname'],
-                }]
+                },
+                {
+                    model: tag,
+                    attributes: ['tagName'],      
+               }]            
            })
-        //    console.log(userNickName)
+           console.log(contentInfo)
            res.status(200).json({ data: [{contentInfo}], message: ' sell page ok' })          
        }  
 }
