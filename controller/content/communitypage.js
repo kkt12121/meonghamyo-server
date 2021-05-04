@@ -14,8 +14,7 @@ module.exports = {
                 model: user,                  
                 attributes: ['nickname'],
             }]
-       })
-    
+       })    
         res.status(200).json({ data: [{ contentInfo }], message: ' community page ok' })
-  }
+    }
 }

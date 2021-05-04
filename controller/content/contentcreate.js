@@ -1,7 +1,4 @@
 const { content } = require('../../models');
-// const { tag } = require('../../models');
-// const { tagContent } = require('../../models');
-// const { post } = require('./tagcreate') 
 
 module.exports = {
     post: async (req, res) => {
@@ -31,13 +28,7 @@ module.exports = {
                       contentBody: data.dataValues.contentBody,
                       img: data.dataValues.img
                    }]})                                     
-              req.params.id = data.dataValues.id
-            //  if(req.params.id) {   
-            //   tagContent
-            //       .create({
-            //         contentId: req.params.id,                    
-            //       })
-            //   }                   
+              req.params.id = data.dataValues.id             
            })
            .catch((err) => {
             return res.status(500).send('err');
