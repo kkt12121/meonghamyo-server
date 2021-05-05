@@ -6,11 +6,11 @@ module.exports = {
        // 먼저 로그인 상태를 확인한다
        // 로그인 상태가 아니라면 로그인 하라고 메세지를 보낸다 
        if(!req.session.userId) {
-         res.status(401).json({ message: 'Please login' })
+         return res.status(401).json({ message: 'Please login' })
        } else {
            // 로그인 상태라면 유저가 작성한 글인지 확인하고
            // 댓글이 해당 content의 댓글인지 확인후
-           // 삭제할 댓글을 req.params의 저장되어있는 commentId로 찾아서
+           // 삭제할 댓글을 params의 저장되어있는 commentId로 찾아서
            // destroy시킨다
            // console.log("???", req)
            comment
@@ -22,7 +22,7 @@ module.exports = {
              },
            })
            .then(() => {                
-              res.status(200).send({"message": 'comment 삭제 성공 !'});                
+              res.status(200).send({"message": 'Comment deletion successful'});                
            })
           .catch((err) => {
              res.status(500).send('err');

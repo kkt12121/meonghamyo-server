@@ -2,9 +2,11 @@ const { content } = require('../../models');
 
 module.exports = {
   put: (req, res) => {
-     const { title, boardName, contentBody, img } = req.body;
+     
+      const { title, boardName, contentBody, img } = req.body;
+       
       if(!req.session.userId) {
-      res.status(401).json({ message: 'Please login' })
+        return res.status(401).json({ message: 'Please login' })
       } else {    
       content
        .update(
@@ -25,7 +27,7 @@ module.exports = {
           res.status(200).send({ "message": "complete update !" })
        })
         .catch((err) => {
-           res.status(500).send('err');
+          return res.status(500).send('err');
        });
     }   
   },
