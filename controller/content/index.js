@@ -8,6 +8,6 @@ module.exports = {
     commentcreate: require('./commentcreate'),
     commentupdate: require('./commentupdate'),
     commentdelete: require('./commentdelete'),
+    taginfo: require('./taginfo'),
     upload: require('./upload'),
-    taginfo: require('./taginfo')
   };
