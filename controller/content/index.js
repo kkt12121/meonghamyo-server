@@ -11,3 +11,4 @@ module.exports = {
     taginfo: require('./taginfo'),
     upload: require('./upload'),
   };
+
