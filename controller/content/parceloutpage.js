@@ -19,7 +19,6 @@ module.exports = {
                     attributes: ['tagName'],      
                }]            
            })
-           console.log(contentInfo)
            res.status(200).json({ data: [{contentInfo}], message: ' sell page ok' })          
        }  
 }

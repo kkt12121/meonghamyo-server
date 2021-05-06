@@ -1,9 +1,7 @@
 const { user } = require('../../models');
 
 module.exports = {
-    post : async (req, res) => {
-    // email: hongildong@gmail.com
-    // password: mine7579       
+    post : async (req, res) => {      
     
     const { email, password, name, nickname, birth } = req.body
     
@@ -42,7 +40,6 @@ module.exports = {
             birth: birth
         })
         .then((data) => {
-            // console.log(data)
             res.status(201).send({data: [{
                 id: data.dataValues.id,
                 email: data.dataValues.email,

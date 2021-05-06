@@ -2,9 +2,7 @@ const { user } = require('../../models');
 
 module.exports = {
     post: async (req, res) => {
-    // email: hongildong@gmail.com
-    // password: mine7579   
-    
+  
     // 일치하는 email이 있는지 확인
     const userInfoCheck = await user.findOne({
         where: { email: req.body.email }

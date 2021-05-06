@@ -12,7 +12,6 @@ module.exports = {
            // 해당 페이지 content를 delete하기 위해
            // content테이블에 id가 params.id와 같은 조건인 content를 찾아서
            // 데이터를 delete한다
-           // console.log("???", req)
          content
            .destroy({
              where: {

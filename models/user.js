@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     birth: DataTypes.STRING,
     img: {
       type: DataTypes.STRING,
-      defaultValue: "https://studyclix.blob.core.windows.net/static/content/file/avatars/b/b2a179c4-bae4-4eaa-ae2e-6a4b8b5f720a.png"
+      defaultValue: null,
     },
     chatbox: DataTypes.STRING
   }, {

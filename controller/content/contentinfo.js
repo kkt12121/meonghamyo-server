@@ -5,7 +5,6 @@ const { tag } = require('../../models');
 
 module.exports = {
     get: async (req, res) => {       
-    //    console.log(req.params)
        if(!req.params.id) {
           return res.status(400).send({ message: "존재하지 않는 글입니다 !" })
        } else {
@@ -17,7 +16,6 @@ module.exports = {
                 attributes: ["tagName"]
             }]
           })
-           // console.log(contentInfo)
            // content를 작성한 유저 정보 불러오기
            const contentWrite = await content.findOne({
                where: { id: req.params.id }

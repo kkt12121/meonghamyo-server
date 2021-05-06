@@ -12,7 +12,6 @@ module.exports = {
            // 댓글이 해당 content의 댓글인지 확인후
            // 삭제할 댓글을 params의 저장되어있는 commentId로 찾아서
            // destroy시킨다
-           // console.log("???", req)
            comment
            .destroy({
              where: {

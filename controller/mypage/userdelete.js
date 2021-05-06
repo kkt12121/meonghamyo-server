@@ -1,9 +1,7 @@
-// const session = require('express-session');
 const { user } = require('../../models');
 
 module.exports = {
   delete: (req, res) => {
-    //  console.log('session userid:', req.session.userId);
        // session안에 userId가 존재하는 확인한다
        // 존재 하지않으면 로그인 상태가 아니기에 오류메세지를 보낸다
        if(!req.session.userId) {

@@ -8,7 +8,6 @@ module.exports = {
         attributes: ['nickname'],
         where: req.session.userId
       })
-      // console.log(userName.nickname)
 
       // 로그인을 해야 comment를 작성할수 있으므로
       // session정보 확인을 통해 로그인 유무를 확인한다 
@@ -24,15 +23,13 @@ module.exports = {
                commentBody: commentBody               
            })
            .then((data) => {
-              //  console.log(data)
                res.status(201).send({ data: [{
                   userId: req.session.userId,
                   contentId: req.params.id,
                   commentBody: data.dataValues.commentBody
                }]})
                req.params.commentId = data.dataValues.id // 현재 comment의 id를 params의 저장시킨다
-               console.log(req.params)               
-           })
+            })
            .catch((err) => {
             res.status(500).send('err');
           });

@@ -23,7 +23,6 @@ module.exports = {
            },
          },
        ).then((data) => {
-          // console.log(data)
           res.status(200).send({ "message": "complete update !" })
        })
         .catch((err) => {
