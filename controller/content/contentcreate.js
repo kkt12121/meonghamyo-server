@@ -35,7 +35,6 @@ module.exports = {
                  const tags = result.map(r => r[0])
                  
                  tags.map(name => req.params.tagId = name.id)
-                 console.log(req.params)
                
                  // 다대다 테이블 create
                  const tagIdCheck2 = await Promise.all(
@@ -45,7 +44,6 @@ module.exports = {
                     }))         
                   )
                   
-                //   console.log("내가원하는 정보: ",tagContentCreate)
                  res.status(201).send({ data: [{
                     id: req.params.id,             
                     userId: req.session.userId,

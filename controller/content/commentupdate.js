@@ -3,7 +3,6 @@ const { comment } = require('../../models');
 module.exports = {
   put: (req, res) => {
      const { commentBody, } = req.body;
-    //   console.log(req.params)
      // 로그인 상태라면 유저가 작성한 글인지 확인하고
      // 댓글이 해당 content의 댓글인지 확인후
      // 수정할 댓글을 params의 저장되어있는 commentId로 찾아서
@@ -24,7 +23,6 @@ module.exports = {
             },
           },
         ).then((data) => {
-           // console.log(data)
            res.status(200).send({ "message": "comment update successful !" })
         })
          .catch((err) => {
