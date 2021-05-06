@@ -3,12 +3,12 @@ const { tagContent } = require('../../models');
 const { tag } = require('../../models');
 
 module.exports = {
-    get: async (req, res) => {
+    post: async (req, res) => {
            //  console.log("quert.tag찾기: ",req.params)
-           
-           if(req.params.tag) {
+            
+           if(req.body.tagName) {
              const tagFind = await tag.findOne({
-                 where: { tagName: req.params.tag }
+                 where: { tagName: req.body.tagName }
              })
              //  console.log("---------------------------------------------")
              //  console.log("tagFind찾기: ",tagFind)

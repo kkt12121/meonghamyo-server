@@ -23,8 +23,8 @@ router.put('/:id/update', contentController.contentupdate.put);
 // * DELETE /contentdelete
 router.delete('/:id/delete', contentController.contentdelete.delete);
 
-// * GET /taginfo
-router.get('/taginfo/:tag', contentController.taginfo.get);
+// * POST /taginfo
+router.post('/taginfo', contentController.taginfo.post);
 
 // * GET /contentinfo
 router.get('/:id', contentController.contentinfo.get);
