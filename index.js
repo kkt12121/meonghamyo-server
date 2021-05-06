@@ -8,6 +8,8 @@ const app = express();
 const mysql = require("mysql")
 const MySQLStore = require("express-mysql-session")(session);
 const port = 4000;
+const dotenv = require('dotenv');
+dotenv.config();
 
 // route 저장소
 const userRouter = require('./routes/user');
@@ -44,10 +46,10 @@ const sessionStore = new MySQLStore(connection);
 // );
 
 const options = {
-  host: "practice-database-deploy.cg6ya8mpemaw.us-east-2.rds.amazonaws.com",
-  port: 13306,
-  user: "kkt12121",
-  password: "mine7579",
+  host: process.env.DATABASE_HOST,
+  port: process.env.DATABASE_PORT,
+  user: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
   database: "meonghamyo",
 };
 
