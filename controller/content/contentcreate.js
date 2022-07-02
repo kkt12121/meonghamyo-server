@@ -39,8 +39,8 @@ module.exports = {
                  // 다대다 테이블 create
                  const tagIdCheck2 = await Promise.all(
                     tags.map(name => tagContent.create({
-                        contentId: contentCreate.id,
-                        tagId: name.id
+                       contentId: contentCreate.id,
+                       tagId: name.id
                     }))         
                   )
                   
