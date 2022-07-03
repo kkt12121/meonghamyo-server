@@ -1,27 +1,32 @@
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 dotenv.config();
 
 module.exports = {
   development: {
-    username: process.env.DATABASE_USERNAME,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE_NAME,
-    host: '127.0.0.1',
-    dialect: 'mysql',
-    logging: false
+    username: process.env.name,
+    password: process.env.password,
+    database: process.env.database,
+    port: process.env.port,
+    host: process.env.host,
+    dialect: "mysql",
+    logging: false,
   },
   test: {
-    username: process.env.DATABASE_USERNAME,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE_NAME,
-    host: '127.0.0.1',
-    dialect: 'mysql',
+    username: process.env.name,
+    password: process.env.password,
+    database: process.env.database,
+    port: process.env.port,
+    host: process.env.host,
+    dialect: "mysql",
+    logging: false,
   },
   production: {
-    username: process.env.DATABASE_USERNAME,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE_NAME,
-    host: '127.0.0.1',
-    dialect: 'mysql',
+    username: process.env.name,
+    password: process.env.password,
+    database: process.env.database,
+    port: process.env.port,
+    host: process.env.host,
+    dialect: "mysql",
+    logging: false,
   },
 };

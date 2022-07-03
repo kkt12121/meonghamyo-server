@@ -1,3 +1,5 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
@@ -7,53 +9,53 @@ const cors = require("cors");
 const app = express();
 const mysql = require("mysql");
 const MySQLStore = require("express-mysql-session")(session);
-const port = 4000;
-const dotenv = require("dotenv");
-dotenv.config();
+const port = process.env.PORT;
 
 // route 저장소
 const userRouter = require("./routes/user");
 const mypageRouter = require("./routes/mypage");
 const contentRouter = require("./routes/content");
 
-// app.use(
-//   session({
-//     key: "devpet",
-//     secret: "@meonghamyo",
-//     store: sessionStore,
-//     resave: false,
-//     saveUninitialized: false,
-//  })
-// );
-
-// const connection = mysql.createConnection(options);
-// const sessionStore = new MySQLStore(connection);
-
+// 배포
 app.use(
   session({
+    key: "devpet",
     secret: "@meonghamyo",
+    store: sessionStore,
     resave: false,
-    saveUninitialized: true,
-    cookie: {
-      domain: "localhost",
-      path: "/",
-      maxAge: 24 * 6 * 60 * 10000,
-      sameSite: "None",
-      httpOnly: true,
-      secure: true,
-    },
+    saveUninitialized: false,
   })
 );
 
-// const options = {
-//   host: process.env.DATABASE_HOST,
-//   port: process.env.DATABASE_PORT,
-//   user: process.env.DATABASE_USER,
-//   password: process.env.DATABASE_PASSWORD,
-//   database: "meonghamyo",
-// };
+const connection = mysql.createConnection(options);
+const sessionStore = new MySQLStore(connection);
 
-// const sessionStore = new MySQLStore(options);
+// 개발환경
+// app.use(
+//   session({
+//     secret: "@meonghamyo",
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {
+//       domain: "localhost",
+//       path: "/",
+//       maxAge: 24 * 6 * 60 * 10000,
+//       sameSite: "None",
+//       httpOnly: true,
+//       secure: true,
+//     },
+//   })
+// );
+
+const options = {
+  host: process.env.host,
+  port: process.env.port,
+  user: process.env.user,
+  password: process.env.password,
+  database: process.env.database,
+};
+
+const sessionStore = new MySQLStore(options);
 
 app.use(
   cors({
