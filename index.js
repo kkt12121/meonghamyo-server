@@ -17,6 +17,14 @@ const mypageRouter = require("./routes/mypage");
 const contentRouter = require("./routes/content");
 
 // 배포
+const options = {
+  host: process.env.host,
+  port: process.env.port,
+  user: process.env.user,
+  password: process.env.password,
+  database: process.env.database,
+};
+
 app.use(
   session({
     key: "devpet",
@@ -28,7 +36,7 @@ app.use(
 );
 
 const connection = mysql.createConnection(options);
-const sessionStore = new MySQLStore(connection);
+var sessionStore = new MySQLStore(connection);
 
 // 개발환경
 // app.use(
@@ -47,15 +55,7 @@ const sessionStore = new MySQLStore(connection);
 //   })
 // );
 
-const options = {
-  host: process.env.host,
-  port: process.env.port,
-  user: process.env.user,
-  password: process.env.password,
-  database: process.env.database,
-};
-
-const sessionStore = new MySQLStore(options);
+var sessionStore = new MySQLStore(options);
 
 app.use(
   cors({
