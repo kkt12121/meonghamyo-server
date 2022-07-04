@@ -78,6 +78,10 @@ app.get("/", function (req, res) {
   res.send("<h1>hi friend!</h1>");
 });
 
+setInterval(function () {
+  https.get("https://meonghamyo.herokuapp.com");
+}, 600000);
+
 let server;
 
 if (fs.existsSync("./key.pem") && fs.existsSync("./cert.pem")) {
