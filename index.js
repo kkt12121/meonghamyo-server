@@ -6,18 +6,20 @@ const cookieParser = require("cookie-parser");
 const https = require("https");
 const fs = require("fs");
 const cors = require("cors");
-const app = express();
 const mysql = require("mysql");
 const MySQLStore = require("express-mysql-session")(session);
 const port = process.env.PORT;
-const { sequelize } = require("./models/index.js");
-
-sequelize.sync();
 
 // route 저장소
 const userRouter = require("./routes/user");
 const mypageRouter = require("./routes/mypage");
 const contentRouter = require("./routes/content");
+
+const sequelize = require("./models").sequelize;
+
+const app = express();
+
+sequelize.sync();
 
 // 배포
 const options = {
