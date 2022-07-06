@@ -10,7 +10,7 @@ const app = express();
 const mysql = require("mysql");
 const MySQLStore = require("express-mysql-session")(session);
 const port = process.env.PORT;
-const { sequelize } = require("../models/index");
+const { sequelize } = require("./models");
 
 sequelize.sync();
 
