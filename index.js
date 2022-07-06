@@ -10,9 +10,9 @@ const app = express();
 const mysql = require("mysql");
 const MySQLStore = require("express-mysql-session")(session);
 const port = process.env.PORT;
-const { db } = require("./models/index.js");
+const { sequelize } = require("./models/index.js");
 
-db.sync();
+sequelize.sync();
 
 // route 저장소
 const userRouter = require("./routes/user");
