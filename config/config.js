@@ -10,7 +10,6 @@ module.exports = {
     host: process.env.host,
     dialect: "mysql",
     logging: false,
-    operatorAliases: false,
   },
   test: {
     username: process.env.name,
@@ -29,6 +28,5 @@ module.exports = {
     host: process.env.host,
     dialect: "mysql",
     logging: false,
-    operatorAliases: false,
   },
 };
