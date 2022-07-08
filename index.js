@@ -71,7 +71,7 @@ var sessionStore = new MySQLStore(options);
 
 app.use(
   cors({
-    origin: true,
+    origin: "https://meonghamyo.netlify.app",
     methods: "GET, POST, OPTIONS, DELETE, PUT",
     credentials: true,
     allowedHeaders: ["Content-Type", "*"],
