@@ -1,1 +1,1 @@
-web: node server/index.js
+web: node meonghamyo-server/index.js
