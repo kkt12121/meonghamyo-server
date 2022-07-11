@@ -1,1 +1,0 @@
-web: node meonghamyo-server/index.js
