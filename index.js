@@ -43,12 +43,12 @@ app.use(
     secret: "@meonghamyo",
     resave: false,
     saveUninitialized: false,
-    store: new MySQLStore(options),
+    store: sessionStore,
   })
 );
-
-// const connection = mysql.createConnection(options);
-// var sessionStore = new MySQLStore(connection);
+//new MySQLStore(options),
+const connection = mysql.createConnection(options);
+var sessionStore = new MySQLStore(connection);
 
 // 개발환경
 // app.use(
@@ -67,7 +67,7 @@ app.use(
 //   })
 // );
 
-// var sessionStore = new MySQLStore(options);
+var sessionStore = new MySQLStore(options);
 
 app.use(
   cors({
