@@ -44,14 +44,6 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: new MySQLStore(options),
-    cookie: {
-      domain: "https://meonghamyo.netlify.app",
-      path: "/",
-      maxAge: 24 * 6 * 60 * 10000,
-      sameSite: "None",
-      httpOnly: true,
-      secure: true,
-    },
   })
 );
 
