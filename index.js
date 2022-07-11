@@ -37,18 +37,20 @@ const options = {
   database: process.env.database,
 };
 
+const connection = mysql.createConnection(options);
+
 app.use(
   session({
     key: "devpet",
     secret: "@meonghamyo",
     resave: false,
     saveUninitialized: false,
-    store: sessionStore,
+    store: new MySQLStore(connection),
   })
 );
-//new MySQLStore(options),
-const connection = mysql.createConnection(options);
-var sessionStore = new MySQLStore(connection);
+
+// const connection = mysql.createConnection(options);
+// var sessionStore = new MySQLStore(connection);
 
 // 개발환경
 // app.use(
@@ -67,7 +69,7 @@ var sessionStore = new MySQLStore(connection);
 //   })
 // );
 
-var sessionStore = new MySQLStore(options);
+//var sessionStore = new MySQLStore(options);
 
 app.use(
   cors({
