@@ -37,15 +37,13 @@ const options = {
   database: process.env.database,
 };
 
-const connection = mysql.createConnection(options);
-
 app.use(
   session({
     key: "devpet",
     secret: "@meonghamyo",
     resave: false,
     saveUninitialized: false,
-    store: new MySQLStore(connection),
+    store: new MySQLStore(options),
   })
 );
 
