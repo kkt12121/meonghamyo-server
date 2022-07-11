@@ -8,7 +8,7 @@ const fs = require("fs");
 const cors = require("cors");
 const mysql = require("mysql");
 const MySQLStore = require("express-mysql-session")(session);
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
 // route 저장소
 const userRouter = require("./routes/user");
