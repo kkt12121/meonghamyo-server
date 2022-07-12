@@ -45,6 +45,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     store: new MySQLStore(options),
+    proxy: true,
     cookie: {
       secure:
         process.env.NODE_ENV && process.env.NODE_ENV === "production"
