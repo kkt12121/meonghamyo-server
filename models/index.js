@@ -20,18 +20,7 @@ if (process.env.JAWSDB_URL) {
     config.database,
     config.username,
     config.password,
-    config,
-    {
-      host: config.host,
-      dialect: "mysql",
-      pool: {
-        max: 15,
-        min: 5,
-        idle: 20000,
-        evict: 15000,
-        acquire: 30000,
-      },
-    }
+    config
   );
 }
 
