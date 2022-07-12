@@ -15,18 +15,18 @@ const userRouter = require("./routes/user");
 const mypageRouter = require("./routes/mypage");
 const contentRouter = require("./routes/content");
 
-const { sequelize } = require("./models");
+// const { sequelize } = require("./models");
 
 const app = express();
 
-sequelize
-  .sync({ force: false })
-  .then(() => {
-    console.log("데이터베이스 연결 성공");
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// sequelize
+//   .sync({ force: false })
+//   .then(() => {
+//     console.log("데이터베이스 연결 성공");
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
 
 // 배포
 const options = {
@@ -44,12 +44,12 @@ app.use(
     secret: "@meonghamyo",
     resave: false,
     saveUninitialized: false,
-    store: new MySQLStore(options),
+    store: sessionStore,
   })
 );
-
-// const connection = mysql.createConnection(options);
-// var sessionStore = new MySQLStore(connection);
+// new MySQLStore(options),
+const connection = mysql.createConnection(options);
+var sessionStore = new MySQLStore(connection);
 
 // 개발환경
 // app.use(
@@ -68,7 +68,7 @@ app.use(
 //   })
 // );
 
-//var sessionStore = new MySQLStore(options);
+var sessionStore = new MySQLStore(options);
 
 app.use(
   cors({
