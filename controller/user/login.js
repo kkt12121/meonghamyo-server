@@ -15,6 +15,7 @@ module.exports = {
       req.session.save(() => {
         console.log("이게 로그인한 유저 id야 !!!!!!!", userInfo.id);
         req.session.userId = userInfo.id;
+        res.header("Content-Type", "application/json");
         res.status(200).send({ data: [{ userInfo }], message: "ok" });
       });
     }
