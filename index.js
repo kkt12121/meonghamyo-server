@@ -37,6 +37,7 @@ const options = {
   database: process.env.database,
 };
 
+app.set("trust proxy", 1);
 app.use(
   session({
     key: "devpet",
