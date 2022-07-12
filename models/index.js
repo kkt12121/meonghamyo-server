@@ -20,7 +20,9 @@ if (process.env.JAWSDB_URL) {
     config.database,
     config.username,
     config.password,
-    config
+    config.port,
+    config.host,
+    config.dialect
   );
 }
 
