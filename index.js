@@ -47,10 +47,8 @@ app.use(
     store: new MySQLStore(options),
     proxy: true,
     cookie: {
-      secure:
-        process.env.NODE_ENV && process.env.NODE_ENV === "production"
-          ? true
-          : false,
+      domain: true,
+      secure: true,
     },
   })
 );
