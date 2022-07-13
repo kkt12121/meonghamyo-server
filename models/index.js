@@ -8,11 +8,11 @@ const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
 const db = {};
 
-// config.use_env_variable
+// process.env.JAWSDB_URL
 let sequelize;
-if (process.env.JAWSDB_URL) {
-  // sequelize = new Sequelize(process.env[config.use_env_variable], config);
-  sequelize = new Sequelize(process.env.JAWSDB_URL, {});
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+  //sequelize = new Sequelize(process.env.JAWSDB_URL, {});
 } else {
   const env = process.env.NODE_ENV || "development";
   const config = require(__dirname + "/../config/config.js")[env];
@@ -20,9 +20,7 @@ if (process.env.JAWSDB_URL) {
     config.database,
     config.username,
     config.password,
-    config.port,
-    config.host,
-    config.dialect
+    config
   );
 }
 

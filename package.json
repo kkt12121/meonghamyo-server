@@ -7,7 +7,8 @@
     "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "npm install pm2 -g",
-    "start": "NODE_ENV=production pm2-runtime index.js -i 0"
+    "start": "nodemon index.js",
+    "deploy": "pm2 start index.js"
   },
   "repository": {
     "type": "git",

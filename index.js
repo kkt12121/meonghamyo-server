@@ -8,25 +8,25 @@ const fs = require("fs");
 const cors = require("cors");
 const mysql = require("mysql");
 const MySQLStore = require("express-mysql-session")(session);
-const port = process.env.PORT || 5000;
+const port = 4000;
 
 // route 저장소
 const userRouter = require("./routes/user");
 const mypageRouter = require("./routes/mypage");
 const contentRouter = require("./routes/content");
 
-const { sequelize } = require("./models");
+// const { sequelize } = require("./models");
 
 const app = express();
 
-sequelize
-  .sync({ force: false })
-  .then(() => {
-    console.log("데이터베이스 연결 성공");
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// sequelize
+//   .sync({ force: false })
+//   .then(() => {
+//     console.log("데이터베이스 연결 성공");
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
 
 // 배포
 const options = {
@@ -37,24 +37,19 @@ const options = {
   database: process.env.database,
 };
 
-app.set("trust proxy", 1);
+// app.set("trust proxy", 1);
 app.use(
   session({
     key: "devpet",
     secret: "@meonghamyo",
     resave: false,
-    saveUninitialized: true,
-    store: new MySQLStore(options),
-    proxy: true,
-    cookie: {
-      domain: "https://meonghamyo.netlify.app",
-      secure: true,
-    },
+    saveUninitialized: false,
+    store: sessionStore,
   })
 );
 
-// const connection = mysql.createConnection(options);
-// var sessionStore = new MySQLStore(connection);
+const connection = mysql.createConnection(options);
+var sessionStore = new MySQLStore(connection);
 
 // 개발환경
 // app.use(
@@ -73,7 +68,7 @@ app.use(
 //   })
 // );
 
-//var sessionStore = new MySQLStore(options);
+var sessionStore = new MySQLStore(options);
 
 app.use(
   cors({
@@ -83,16 +78,6 @@ app.use(
     allowedHeaders: ["Content-Type", "*"],
   })
 );
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Credentials", true);
-//   res.header("Access-Control-Allow-Origin", "https://meonghamyo.netlify.app");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override, Set-Cookie, Cookie"
-//   );
-//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-//   next();
-// });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -106,9 +91,9 @@ app.get("/", function (req, res) {
   res.send("<h1>hi friend!</h1>");
 });
 
-setInterval(function () {
-  https.get("https://meonghamyo.herokuapp.com");
-}, 600000);
+// setInterval(function () {
+//   https.get("https://meonghamyo.herokuapp.com");
+// }, 600000);
 
 let server;
 
